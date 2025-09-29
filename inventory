@@ -1,0 +1,4 @@
+[windows]
+source_node ansible_host=134.149.217.175
+target_node ansible_host=135.236.107.217
+

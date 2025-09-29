@@ -1,0 +1,17 @@
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    container-engine: auto
+    image: registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel9:latest
+    pull:
+      policy: missing
+    environment-variables:
+      set:
+        ANSIBLE_VAULT_PASSWORD_FILE: /runner/project/.vault-password
+    volume-mounts:
+      - src: .vault-password
+        dest: /runner/project/.vault-password
+        options: Z
+
+  playbook-artifact:
+    enable: false

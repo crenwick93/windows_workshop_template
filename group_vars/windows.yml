@@ -1,0 +1,21 @@
+---
+# WinRM auth may be delegated via inventory; override here as needed.
+
+# Windows connection (use Ansible Vault for the password in real use)
+ansible_user: ansible
+ansible_password: "{{ vault_win_password | default('CHANGE_ME') }}"
+ansible_connection: winrm
+ansible_port: 5985
+ansible_winrm_transport: basic
+ansible_winrm_server_cert_validation: ignore
+
+# SQL Server settings
+sql_instance: MSSQLSERVER
+db_name: REDHAT
+backup_dir: C:\\MSSQL_Backups
+backup_file: "{{ db_name }}_{{ lookup('ansible.builtin.pipe', 'date +%Y%m%d%H%M%S') }}.bak"
+
+# For restores, optionally relayout files. Leave empty to let SQL pick defaults
+restore_data_path: C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\DATA
+restore_log_path: C:\\Program Files\\Microsoft SQL Server\\MSSQL16.MSSQLSERVER\\MSSQL\\DATA
+
