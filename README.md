@@ -5,7 +5,7 @@ Get started quickly with Windows automation using Ansible Navigator and the Ansi
 ## What’s included
 - `ansible-navigator.yml` – preconfigured to use the `registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel9:latest` EE and mount a `.vault-password` from this working directory into the container
 - `inventory` – example `windows` group with two hosts
-- `group_vars/windows.yml` – WinRM connection variables; username defaults to `ansible`, password is pulled from vault
+- `group_vars/windows.yml` – WinRM connection variables; username defaults to `ansible`. In AAP, attach a Machine credential for auth; in Navigator, you may pass `-e @vault.yml` to supply a password if needed.
 - `vault.yml` – encrypted Ansible Vault file (contains `vault_win_password`)
 - `test_windows_connectivity.yml` – simple playbook to verify WinRM connectivity and identity
 

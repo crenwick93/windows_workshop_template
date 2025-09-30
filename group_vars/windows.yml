@@ -3,7 +3,6 @@
 
 # Windows connection (use Ansible Vault for the password in real use)
 ansible_user: ansible
-ansible_password: "{{ vault_win_password }}"
 ansible_connection: winrm
 ansible_port: 5986
 ansible_winrm_transport: basic
