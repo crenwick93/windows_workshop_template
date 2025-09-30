@@ -31,10 +31,10 @@ Edit `inventory` and set the correct IPs/hostnames under the `windows` group. Ad
 Ensure your Windows hosts are reachable over WinRM HTTP (port 5985) from your machine.
 
 ## 3) Test connectivity
-Run the included test playbook using Ansible Navigator (uses the EE container and your mounted vault password automatically):
+Run the included test playbook using Ansible Navigator (uses the EE container and your mounted vault password automatically). This command injects the vaulted vars file without using `vars_files`:
 
 ```bash
-ansible-navigator run test_windows_connectivity.yml -i inventory -m stdout
+ansible-navigator run test_windows_connectivity.yml -i inventory -e @vault.yml -m stdout
 ```
 
 You should see a successful `win_ping` and a debug message like "Connected as: ...".
