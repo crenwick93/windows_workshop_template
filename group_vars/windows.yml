@@ -3,7 +3,7 @@
 
 # Windows connection (use Ansible Vault for the password in real use)
 ansible_user: ansible
-ansible_password: "{{ vault_win_password | default('CHANGE_ME') }}"
+ansible_password: "{{ vault_win_password }}"
 ansible_connection: winrm
 ansible_port: 5985
 ansible_winrm_transport: basic
